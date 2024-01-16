@@ -1,4 +1,4 @@
-# pop
+# fe-react-pop
 
 [![NPM version](https://img.shields.io/npm/v/pop.svg?style=flat)](https://npmjs.org/package/pop)
 [![NPM downloads](http://img.shields.io/npm/dm/pop.svg?style=flat)](https://npmjs.org/package/pop)

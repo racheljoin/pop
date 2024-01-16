@@ -22,10 +22,11 @@ export const getPopDom = (customDomId: string | undefined) => {
   if (!popDom) {
     popDom = document.createElement('div');
     popDom.id = popReportDom;
-    popDom.setAttribute(
-      'style',
-      'position: fixed;top: 0; left: 0; right: 0; bottom: 0; z-index: 99;',
-    );
+    popDom.setAttribute('class', 'popFunctionDom');
+    // popDom.setAttribute(
+    //   'style',
+    //   'position: fixed;top: 0; left: 0; right: 0; bottom: 0; z-index: 99;',
+    // );
     document.body.appendChild(popDom);
   }
   return popDom;
@@ -36,7 +37,6 @@ const PopFunction = ({
   delay = 0,
   customDomId,
 }: PropsWithChildren<IPop>) => {
-  console.log(children, 'childrenchildren');
   const popDom = getPopDom(customDomId);
   const root = createRoot(popDom);
 
