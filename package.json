@@ -43,7 +43,7 @@
       "prettier --write --no-error-on-unmatched-pattern"
     ],
     "*.{css,less}": [
-      "stylelint --fix",
+      "stylelint --fix --allow-empty-input",
       "prettier --write"
     ],
     "*.{js,jsx}": [
