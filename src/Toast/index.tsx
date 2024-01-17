@@ -1,13 +1,13 @@
 import React from 'react';
-import Pop from '../Foo';
+import Pop, { IPop } from '../Foo';
 import './index.scss';
-interface IPop {
+interface IToast extends IPop {
   delay?: number;
   hasMask?: boolean;
   content: string | JSX.Element;
 }
 
-const Toast = ({ content, delay = 1000, hasMask = true }: IPop) => {
+const Toast = ({ content, delay = 1000, hasMask = true, ...props }: IToast) => {
   return Pop({
     customDomId: 'popToastDom',
     delay,
@@ -18,6 +18,7 @@ const Toast = ({ content, delay = 1000, hasMask = true }: IPop) => {
     ) : (
       <div className="popToastDomContent">{content}</div>
     ),
+    ...props,
   });
 };
 

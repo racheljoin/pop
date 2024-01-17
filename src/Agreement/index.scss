@@ -10,5 +10,9 @@
     display: flex;
     flex-direction: column;
     overflow: auto;
+    .popAgreementDomContentScroll {
+      flex: 1 1 auto;
+      overflow: auto;
+    }
  }
 }

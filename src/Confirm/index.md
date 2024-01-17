@@ -18,7 +18,7 @@ const Demo = () => {
 export default () => <Demo />;
 ```
 
-Demo1: 不带标题
+Demo2: 不带标题
 
 ```jsx
 import { Confirm } from 'fe-react-pop';
@@ -35,7 +35,7 @@ const Demo = () => {
 export default () => <Demo />;
 ```
 
-Demo1: 自定义 footer
+Demo3: 自定义 footer
 
 ```jsx
 import { Confirm } from 'fe-react-pop';
@@ -64,6 +64,28 @@ const Demo = () => {
   };
 
   return <div onClick={pop}>自定义footer</div>;
+};
+
+export default () => <Demo />;
+```
+
+Demo4: 阻止外部滚动
+
+```jsx
+import { Confirm } from 'fe-react-pop';
+const Demo = () => {
+  const pop = () => {
+    Confirm({
+      content: '确认删除吗',
+      title: '删除确认',
+    });
+  };
+
+  return (
+    <div onClick={pop} style={{ height: '150vh' }}>
+      确认
+    </div>
+  );
 };
 
 export default () => <Demo />;

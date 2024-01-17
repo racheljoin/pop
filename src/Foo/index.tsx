@@ -5,10 +5,11 @@ import React, {
   cloneElement,
 } from 'react';
 import { createRoot } from 'react-dom/client';
-interface IPop {
+export interface IPop {
   delay?: number;
   destroyAfterHidden?: boolean;
   customDomId?: string;
+  stopBodyScroll?: boolean;
 }
 
 const getRandomId = () => {
@@ -36,11 +37,20 @@ const PopFunction = ({
   children,
   delay = 0,
   customDomId,
+  stopBodyScroll = false,
 }: PropsWithChildren<IPop>) => {
   const popDom = getPopDom(customDomId);
   const root = createRoot(popDom);
+  const cacheData = window.getComputedStyle(document.body).overflow;
+
+  if (stopBodyScroll) {
+    document.body.style.overflow = 'hidden';
+  }
 
   const destroy = (): void => {
+    if (stopBodyScroll) {
+      document.body.style.overflow = cacheData;
+    }
     if (popDom && document.body.contains(popDom)) {
       root.unmount();
       document.body.removeChild(popDom);

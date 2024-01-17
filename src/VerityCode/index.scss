@@ -1,0 +1,51 @@
+.feReactPopVerityCode {
+  .displayArea {
+    display: flex;
+    .value {
+      margin-right: 0.625rem;
+      border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.20);
+      width: 100%;
+      line-height: 3.5rem;
+      height: 3.5rem;
+      position: relative;
+      text-align: center;
+      &.focus {
+        border-bottom: 0.0625rem solid #00C553;
+        flex: 1 1 auto;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0.625rem;
+          bottom: 0.625rem;
+          left: 50%;
+          transform: translate(-50%, 0) scaleX(0.5);
+          border-left: 0.0625rem solid #333;
+          transform-origin: 0 0;
+          animation: 0.8s cursor-flicker infinite;
+        }
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+
+    }
+  }
+  .hideInput {
+    position: fixed;
+    top: -100000px;
+    left: -100000px;
+  }
+}
+@keyframes cursor-flicker {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

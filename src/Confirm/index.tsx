@@ -1,13 +1,13 @@
 import React, { cloneElement } from 'react';
-import Pop from '../Foo';
+import Pop, { IPop } from '../Foo';
 import './index.scss';
-interface IPop {
+interface IConfirm extends IPop {
   delay?: number;
   content: string | JSX.Element;
   title?: string | JSX.Element;
   footer?: string | JSX.Element;
 }
-interface IConfirmContent extends IPop {
+interface IConfirmContent extends IConfirm {
   destroy?: () => void;
 }
 const ConfirmContent = ({
@@ -35,13 +35,22 @@ const ConfirmContent = ({
     </div>
   );
 };
-const Confirm = ({ content, title, delay = 0, footer }: IPop) => {
+const Confirm = ({
+  content,
+  title,
+  delay = 0,
+  footer,
+  stopBodyScroll = true,
+  ...props
+}: IConfirm) => {
   return Pop({
     customDomId: 'popConfirmDom',
     delay,
     children: (
       <ConfirmContent content={content} title={title} footer={footer} />
     ),
+    stopBodyScroll,
+    ...props,
   });
 };
 
