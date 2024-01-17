@@ -2,22 +2,19 @@ import React, { HTMLAttributes, PropsWithChildren } from 'react';
 import backSrc from '../assets/back.svg';
 import backBlackSrc from '../assets/backBlack.svg';
 import './index.scss';
-interface IHeader {
+interface IHeader extends HTMLAttributes<HTMLDivElement> {
   // 返回按钮
   onBack?: () => void;
-  // 标题文字
-  title?: JSX.Element | string;
   // 自定义右侧
   right?: JSX.Element | string;
   theme?: 'white' | 'black';
-  props?: HTMLAttributes<HTMLDivElement>;
 }
 const Header = ({
   right,
-  children,
   theme = 'black',
   onBack,
-  props = {},
+  children,
+  ...props
 }: PropsWithChildren<IHeader>) => {
   return (
     <div
