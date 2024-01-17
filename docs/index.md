@@ -4,7 +4,7 @@ hero:
   description: 函数式弹窗
   actions:
     - text: 快速上手
-      link: /
+      link: /components/toast
 # features:
 #   - title: Hello
 #     emoji: 💎

@@ -12,5 +12,6 @@
       "pop/*": ["src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*"],
+  "exclude": ["dist", "docs", "docs-dist"]
 }
