@@ -119,7 +119,6 @@ const VerityCode = ({
             className={`feReactPopVerityCodeInput ${focus ? 'focus' : ''}`}
             maxLength={1}
             value={v || ''}
-            // autoComplete="one-time-code"
             onClick={() => focusInput(index)}
             onChange={(e) => handleChange(e, index)}
             onKeyDown={(e) => handleOnKeyDown(e, index)}
