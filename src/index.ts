@@ -4,3 +4,4 @@ export { default as Pop } from './Foo';
 export { default as Header } from './Header';
 export { default as Toast } from './Toast';
 export { default as VerityCode } from './VerityCode';
+export { default as VerityCodeV2 } from './VerityCodeV2';

@@ -1,0 +1,116 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.18.2
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: certificate has expired
+      at TLSSocket.onConnectSecure (node:_tls_wrap:1600:34)
+      at TLSSocket.emit (node:events:517:28)
+      at TLSSocket._finishInit (node:_tls_wrap:1017:8)
+      at ssl.onhandshakedone (node:_tls_wrap:803:12)
+
+npm manifest: 
+  {
+    "name": "fe-react-pop",
+    "version": "0.0.6",
+    "description": "函数式弹窗",
+    "keywords": [
+      "React",
+      "函数式弹窗",
+      "命令式弹窗",
+      "指令式弹窗",
+      "弹窗",
+      "h5"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/racheljoin/pop"
+    },
+    "license": "MIT",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+      "dist"
+    ],
+    "scripts": {
+      "build": "father build",
+      "build:watch": "father dev",
+      "dev": "dumi dev",
+      "docs:build": "dumi build",
+      "doctor": "father doctor",
+      "lint": "npm run lint:es && npm run lint:css",
+      "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+      "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+      "prepare": "husky install && dumi setup",
+      "prepublishOnly": "father doctor && npm run build",
+      "start": "npm run dev"
+    },
+    "commitlint": {
+      "extends": [
+        "@commitlint/config-conventional"
+      ]
+    },
+    "lint-staged": {
+      "*.{md,json}": [
+        "prettier --write --no-error-on-unmatched-pattern"
+      ],
+      "*.{css,less}": [
+        "stylelint --fix --allow-empty-input",
+        "prettier --write"
+      ],
+      "*.{js,jsx}": [
+        "eslint --fix",
+        "prettier --write"
+      ],
+      "*.{ts,tsx}": [
+        "eslint --fix",
+        "prettier --parser=typescript --write"
+      ]
+    },
+    "devDependencies": {
+      "@commitlint/cli": "^17.1.2",
+      "@commitlint/config-conventional": "^17.1.0",
+      "@types/react": "^18.0.0",
+      "@types/react-dom": "^18.0.0",
+      "@umijs/lint": "^4.0.0",
+      "dumi": "^2.2.13",
+      "dumi-theme-mobile": "^2.1.2",
+      "eslint": "^8.23.0",
+      "father": "^4.1.0",
+      "husky": "^8.0.1",
+      "lint-staged": "^13.0.3",
+      "prettier": "^2.7.1",
+      "prettier-plugin-organize-imports": "^3.0.0",
+      "prettier-plugin-packagejson": "^2.2.18",
+      "react": "^18.0.0",
+      "react-dom": "^18.0.0",
+      "stylelint": "^14.9.1"
+    },
+    "peerDependencies": {
+      "react": ">=16.9.0",
+      "react-dom": ">=16.9.0"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "authors": [
+      "racheljoin"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
