@@ -33,7 +33,9 @@ export const getPopDom = (customDomId: string | undefined) => {
   return popDom;
 };
 
-const PopFunction = ({
+export type IPopFunction = (i: PropsWithChildren<IPop>) => () => void;
+
+const PopFunction: IPopFunction = ({
   children,
   delay = 0,
   customDomId,
@@ -65,13 +67,13 @@ const PopFunction = ({
   }
 
   root.render(
-    <>
+    <React.Fragment>
       {Children.map(children as ReactElement, (child: ReactElement) =>
         cloneElement(child, {
           destroy,
         }),
       )}
-    </>,
+    </React.Fragment>,
   );
   return destroy;
 };

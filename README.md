@@ -7,11 +7,9 @@
 
 ## Usage
 
-TODO
+<API></API>
 
 ## Options
-
-TODO
 
 ## Development
 
