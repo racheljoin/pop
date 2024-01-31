@@ -11,4 +11,5 @@ export default defineConfig({
     name: 'fe-react-pop',
     deviceWidth: 375,
   },
+  publicPath: '/pop/',
 });
