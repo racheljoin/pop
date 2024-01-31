@@ -6,10 +6,6 @@ on:
   push:
     branches:
       - master
-deploy:
-  type: git
-  repo: git@github.com:racheljoin/pop.git
-  brach: master
 
 # 工作流
 jobs:
@@ -25,7 +21,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          type: git
-          repo: git@github.com:racheljoin/pop.git
           branch: build # 打包的内容放到build分支下
           folder: docs-dist
