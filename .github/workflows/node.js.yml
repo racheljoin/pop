@@ -6,6 +6,10 @@ on:
   push:
     branches:
       - master
+deploy:
+  type: git
+  repo: git@github.com:racheljoin/pop.git
+  brach: master
 
 # 工作流
 jobs:
