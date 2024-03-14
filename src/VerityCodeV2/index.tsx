@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './index.scss';
 
 interface IVerityCode extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,6 +13,7 @@ const VerityCode = ({
   ...props
 }: IVerityCode) => {
   const [value, setValue] = React.useState<string>('');
+  const throttleTime = useRef<NodeJS.Timer>(null);
   // 用来存放6个input的引用
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -29,12 +30,23 @@ const VerityCode = ({
     setFocus(e.target.value.trim().length);
   };
 
+  const throttleFinish = (newValue: string) => {
+    if (throttleTime.current) {
+      return;
+    }
+    throttleTime.current = setTimeout(() => {
+      clearTimeout(throttleTime.current);
+      throttleTime.current = null;
+      onFinish?.(newValue);
+    }, 40);
+  };
+
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const newValue = e.target.value.trim();
     setValue(newValue);
     setFocus(newValue.trim().length);
     if (newValue.trim().length === bit) {
-      onFinish?.(newValue);
+      throttleFinish(newValue);
     }
   };
 
