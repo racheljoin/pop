@@ -13,7 +13,7 @@ const VerityCode = ({
   ...props
 }: IVerityCode) => {
   const [value, setValue] = React.useState<string>('');
-  const throttleTime = useRef<NodeJS.Timer>(null);
+  const throttleTime = useRef<NodeJS.Timeout | null>(null);
   // 用来存放6个input的引用
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -35,7 +35,9 @@ const VerityCode = ({
       return;
     }
     throttleTime.current = setTimeout(() => {
-      clearTimeout(throttleTime.current);
+      if (throttleTime.current) {
+        clearTimeout(throttleTime.current);
+      }
       throttleTime.current = null;
       onFinish?.(newValue);
     }, 40);
